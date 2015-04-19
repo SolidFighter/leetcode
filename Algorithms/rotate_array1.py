@@ -6,12 +6,17 @@ class Solution:
     # @return nothing, please modify the nums list in-place.
     def rotate(self, nums, k):
         n = len(nums)
-        if n > 0 and k > 0:
-            nums[:] = nums[n-k : ] + nums[ : n-k]
+        k %= n
+        self.reverse(nums, 0, n - k)
+        self.reverse(nums, n - k, n)
+        self.reverse(nums, 0, n)
+
+    def reverse(self, nums, start, end):
+        for i in range(start, int((start + end) / 2)):
+            nums[i], nums[start + end - i - 1] = nums[start + end - i - 1], nums[i]
 
 if __name__ == '__main__':
-    # solusion = Solution()
-    # nums = [1, 2, 3, 4, 5, 6, 7]
-    # solusion.rotate(nums, 3)
-    # print(nums)
-    print('fvck')
+    solusion = Solution()
+    nums = [1, 2, 3, 4, 5, 6, 7]
+    solusion.rotate(nums, 3)
+    print(nums)
