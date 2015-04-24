@@ -1,0 +1,21 @@
+# Majority Element Total Accepted: 34472 Total Submissions: 99657
+#
+# Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
+#
+# You may assume that the array is non-empty and the majority element always exist in the array.
+#
+# Credits:
+# Special thanks to @ts for adding this problem and creating all test cases.
+
+__author__ = 'myang'
+
+class Solution:
+    # @param {integer[]} nums
+    # @return {integer}
+    def majorityElement(self, nums):
+        nums.sort()
+        return nums[int(len(nums)/2)]
+
+if __name__ == '__main__':
+    solution = Solution()
+    print(solution.majorityElement([1, 3, 3, 2, 3, 2, 2, 2, 2]))
